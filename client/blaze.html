@@ -1,0 +1,51 @@
+<head>
+  <title>blaze</title>
+</head>
+
+<body>
+  
+</body>
+
+<template name="run">
+  {{#Layout template="MyLayout"}}
+    This content will go into the main yield region.
+
+    {{#contentFor region="footer"}}
+      {{> footer}}
+    {{/contentFor}}
+  {{/Layout}}
+</template>
+
+<template name="MyLayout">
+  <h1>My Layout</h1>
+
+  <div>
+    {{> yield}}
+  </div>
+
+  <footer>
+    {{> yield region="footer"}}
+  </footer>
+</template>
+
+<template name="footer">
+  Footer template
+</template>
+
+<template name="404">
+  <h1>404</h1>
+</template>
+
+<template name="loading">
+  <h1>loading</h1>
+</template>
+
+<template name="root">
+  <h1>root</h1>
+  <a href="{{pathFor 'page1'}}" >page1</a>
+</template>
+
+<template name="page1">
+  <h1>page1</h1>
+  <a href="{{pathFor 'root'}}" >root</a>
+</template>
